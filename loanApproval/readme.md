@@ -3,17 +3,17 @@
 This project implements a simple machine learning model to predict whether a loan will be approved or rejected based on applicant details. It uses the **K-Nearest Neighbors (KNN)** algorithm from **scikit-learn** and is trained on a dataset containing various financial and personal features of applicants.
 
 # Requirements
-Python 3.13.5
-pandas
-numpy
-scikit-learn
+- Python 3.13.5
+- pandas
+- numpy
+- scikit-learn
 
-Install dependencies using:
+
 ## to run this download it, 
- step 1: conda create -n ML python=3.13.5
- step 2: conda activate ML
- step 3: pip install -r requirement.txt
- step 4: then you can run it uisng your preferred ide or code editor 
+- step 1: conda create -n ML python=3.13.5
+- step 2: conda activate ML
+- step 3: pip install -r requirement.txt
+- step 4: then you can run it uisng your preferred ide or code editor 
 
 
 ## 📁 Dataset
