@@ -49,7 +49,7 @@ A **K-Nearest Neighbors Classifier** is trained with `n_neighbors=11`.
 
 ## code
 
-<pre>  ```python
+<pre> 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LogisticRegression
@@ -102,7 +102,7 @@ print("Predicted approve orr not:", approve_or_not)
 if approve_or_not == 1:
   print("Loan Approved")
 else:
-  print("Loan Rejected") ```</pre>
+  print("Loan Rejected") </pre>
 ## output
 Predicted approve or not: [1]
 Loan Approved
