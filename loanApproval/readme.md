@@ -104,8 +104,8 @@ if approve_or_not == 1:
 else:
   print("Loan Rejected") </pre>
 ## output
-Predicted approve or not: [1]
-Loan Approved
+- Predicted approve or not: [1]
+- Loan Approved
 
 
 
