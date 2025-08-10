@@ -14,8 +14,8 @@ This project implements a simple machine learning model to predict whether a loa
 - step 2: conda activate ML
 - step 3: pip install -r requirement.txt
 - step 4: then you can run it uisng your preferred ide or code editor 
-
-
+## score
+- Model Score: 0.76
 ## 📁 Dataset
 
 The dataset (`loan_approval_dataset.csv`) contains 12 columns including:
@@ -47,13 +47,41 @@ The dataset (`loan_approval_dataset.csv`) contains 12 columns including:
 
 A **K-Nearest Neighbors Classifier** is trained with `n_neighbors=11`.
 
-```python
+## code
+
+<pre>  ```python
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(pd.read_csv('./loan_approval_dataset.csv'))
+df.head()
+df.drop('loan_id', axis=1)
+df[' education'] = df[' education'].replace({' Graduate':1,' Not Graduate':0})
+df[' self_employed'] = df[' self_employed'].replace({' No':0,' Yes':1})
+df[' loan_status'] = df[' loan_status'].replace({' Approved':1, ' Rejected':0})
+
+df.columns
+
+features1 = [' no_of_dependents', ' education', ' self_employed',
+       ' income_annum', ' loan_amount', ' loan_term', ' cibil_score',
+       ' residential_assets_value', ' commercial_assets_value',
+       ' luxury_assets_value', ' bank_asset_value']
+
+target = [' loan_status']
+x1 = df[features1]
+y1 = df[target]
+x_train, x_test, y_train, y_test = train_test_split(x1, y1, test_size=0.2, random_state=42)
+
 model = KNeighborsClassifier(n_neighbors=11)
 model.fit(x_train, y_train)
+y_pred = model.predict(x_test)
 
 score = model.score(x_test, y_test)
 print("Model Score:", score)
-
 new_loan = pd.DataFrame({
     ' no_of_dependents': [2],
     ' education': [1],
@@ -69,10 +97,15 @@ new_loan = pd.DataFrame({
 })
 
 approve_or_not = model.predict(new_loan)
+print("Predicted approve orr not:", approve_or_not)
 
 if approve_or_not == 1:
-    print("Loan Approved")
+  print("Loan Approved")
 else:
-    print("Loan Rejected")
+  print("Loan Rejected") ```</pre>
+## output
+Predicted approve or not: [1]
+Loan Approved
+
 
 
